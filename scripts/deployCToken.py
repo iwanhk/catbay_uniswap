@@ -14,3 +14,9 @@ def main():
 
         token=ctoken.deploy('c1', 'C1', 50, {'from': iwan})
         pool= Swap.at(token.getPool())
+
+    if network.show_active() == 'kovan' or network.show_active() == 'rinkeby' :
+        accounts.add(config['wallets']['iwan'])
+
+        token=ctoken.deploy('c1', 'C1', 50, {'from': accounts[0]})
+        pool= Swap.at(token.getPool())

@@ -124,7 +124,6 @@ contract Swap is ERC20{
         
         //Return the eth and token amounts
         return (eth_amount, token_amount);
-
     }
 
 

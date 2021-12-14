@@ -14,10 +14,10 @@ def test_liquidity(accounts, pool, token):
 
     # Second liquidity provider adding liquidity (accounts[1]) in a very different rate
     # than first provider (they are giving the token a much lower price: 100 gwei to 100 token):
-    token.approve(accounts[0], 100, {'from': accounts[0]})
-    token.transferFrom(accounts[0], accounts[1], 100, {'from': accounts[0]})
-    token.approve(pool.address, 100, {'from': accounts[1]})
-    pool.addLiquidity(100, {'from': accounts[1], 'value': 100})
+    token.approve(accounts[0], 200, {'from': accounts[0]})
+    token.transferFrom(accounts[0], accounts[1], 200, {'from': accounts[0]})
+    token.approve(pool.address, 200, {'from': accounts[1]})
+    pool.addLiquidity(200, {'from': accounts[1], 'value': 100})
 
     assert pool.getTokenReserve() == 200
     assert pool.totalSupply() == 1000000100
